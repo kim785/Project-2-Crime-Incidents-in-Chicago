@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Chicago Crime</title>
+  <title>Chicago Crime Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -22,9 +22,8 @@
       </div>
     </nav>
     <div class="hero text-center">
-      <h1>Chicago Crime</h1>
-      <p>This site reflects reported incidents of crime that occurred in the City of Chicago in 2020 supplied by <a href = "https://dev.socrata.com/foundry/data.cityofchicago.org/ijzp-q8t2" target = "__blank">https://data.cityofchicago.org</a>.</p>
-      <p>Current data is from calendar year 2018 and is updated annually.</p>
+      <h1>Chicago Crime - 2020</h1>
+      <p>The Truth is Out There</p>
     </div>
     <div class="container">
       <div class="row margin-top-50">
@@ -37,12 +36,14 @@
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                        <label for="date">Enter a Month</label>
+                        <input class="form-control" id="crime_month_name" type="text" placeholder="January">
+                        <label for="city">Enter Crime Type</label>
+                        <input class="form-control" id="primary_type" type="text" placeholder="ROBBERY">
                       </li>
                     </ul>
                   </div>
-                  <button id="filter-btn" type="button" class="btn btn-default">Filter Data Table</button>
+                  <button id="filter-btn" type="button" class="btn btn-default">Filter the Data</button>
                 </form>
               </div>
             </div>
@@ -53,13 +54,13 @@
             <table id="ufo-table" class="table table-striped">
               <thead>
                 <tr>
-                  <th class="table-head">Year</th>
-                  <th class="table-head">Month</th>
-                  <th class="table-head">Primary Type</th>
-                  <th class="table-head">Description</th>
-                  <th class="table-head">Arrest</th>
-                  <th class="table-head">Domestic</th>
-                  <th class="table-head">Total Count</th>
+                  <th class="table-head">crime_month_name</th>
+                  <th class="table-head">primary_type</th>
+                  <th class="table-head">reported_crime</th>
+                  <!-- <th class="table-head">Country</th>
+                  <th class="table-head">Shape</th>
+                  <th class="table-head">Duration</th>
+                  <th class="table-head">Comments</th> -->
                 </tr>
               </thead>
               <tbody></tbody>
@@ -72,9 +73,12 @@
       <span class="bottom">UFO Sightings</span>
     </footer>
   </div>
+  <script>
+    var summary = "{{summary|safe}}"
+      console.log (summary)
+  </script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="static/js/data.js"></script>
-  <script src="static/js/app.js"></script>
+  <script src="../static/js/summary_table.js"></script>
 </body>
 
 </html>
