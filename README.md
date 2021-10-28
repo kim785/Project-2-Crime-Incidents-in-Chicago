@@ -23,7 +23,7 @@ Graph 3: Junaid
 
 In order to create an interactive visual to display the data we found, we will be completing the following processes:
 1. To clean up data (ETL), we are using Pandas. 
-2. We will be loading our data into the database Postgres. The data will be loaded directly from Pandas. 
+2. We will be loading our data into the mongodb. The data will be loaded directly from Pandas. 
 3. Build the front end schema of the visuals using HTML 
 4. Plot a couple pie plots, bar graphs, bubble graphs, search of a districts/neighborhoods (by zip code), and a map of the data using D3 (mapping web). 
     * Create flask applications for each visual
