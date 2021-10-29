@@ -19,6 +19,7 @@ var columns = ["crime_month_name", "primary_type", "reported_crime"]
 //     });
 // }
 // addData(tableData);
+
 d3.select("tbody")
     .selectAll("tr")
     .data(summary)

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chicago Crime Data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="">
+  <!--<style id="plotly.js-style-global"></style>
+  <style id="plotly.js-style-modebar-b48ac6"></style>
+  <style id="plotly.js-style-modebar-9720fe"></style>
+  <style id="plotly.js-style-modebar-747187"></style>-->
+</head>
+
+<body>
+    <!--
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">
+              <font color="white">
+                  <b>Chicago Crime</b>
+              </font>
+          </a>
+        </div>
+      </div>
+    </nav>-->
+
+    <div id="createSideBar" class="sidebar" style="width: 250px;">
+        <a href="javascript:void(0)" class="closebin" onclick="closeNav()">x</a>
+        <!--select a location/neighborhood-->
+        <div class="panel-heading">
+            <strong>Select Neighboorhood</strong>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                <ul class="list-group" id="filters">
+                    <li class="filter list-group-item">
+                    <input class="form-control" id="Location" type="text" placeholder="ie. Lincoln Park">
+                    </li>
+                </ul>
+                </div>
+            </form>
+        </div>
+        <div class="panel-heading">
+            <strong>Select Crime Type</strong>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                <ul class="list-group" id="filters">
+                    <li class="filter list-group-item">
+                    <input class="form-control" id="Location" type="text" placeholder="ie. Assault">
+                    </li>
+                </ul>
+                </div>
+            </form>
+        </div>
+        <!--can create other filter searches here (search, dropdown, multiselect, etc.)-->
+    </div>
+    <br>
+    <br>
+    <div id="main" style="margin-left: 250px;">
+        <button class="openbtn" onclick="openNav()">☰ Filters</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row-fluid justify-content-center">
+            <div class="col-lg-4">
+                <h4>_</h4>
+                <p>_</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero text-center">
+      <h1>Chicago Crime</h1>
+      <p>This site reflects reported incidents of crime that occurred in the City of Chicago in 2020 supplied by <a href = "https://dev.socrata.com/foundry/data.cityofchicago.org/ijzp-q8t2" target = "__blank">https://data.cityofchicago.org</a>.</p>
+      <p>Current data is from calendar year 2018 and is updated annually.</p>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-2">
+          <aside class="filters">
+            <div class="panel panel-default">
+              <div class="panel-heading">Filter Search</div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <ul class="list-group" id="filters">
+                      <li class="filter list-group-item">
+                        <label for="date">Enter a Location</label>
+                        <input style="height:40px;width:120px" class="form-control" id="Location" type="text" placeholder="South Loop">
+                      </li>
+                    </ul>
+                  </div>
+                  <button style="background-color:darkseagreen" style="height:50px;width:120px" id="filter-btn" type="button" class="btn btn-default">Search</button>
+                </form>
+              </div>
+            </div>
+          </aside>
+        </div>
+       
+        <div class="col-md-10">
+          <div id="table-area">
+            <table style=border:indianred style="width:100%" id="crime-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">Year</th>
+                  <th class="table-head">Month</th>
+                  <th class="table-head">Primary Type</th>
+                  <th class="table-head">Description</th>
+                  <th class="table-head">Arrest</th>
+                  <th class="table-head">Domestic</th>
+                  <th class="table-head">Total Count</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <span class="bottom">footer</span>
+    </footer>
+  </div>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/app.js"></script>
+</body>
+
+</html>
